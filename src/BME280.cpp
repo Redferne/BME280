@@ -86,6 +86,19 @@ bool BME280::InitializeFilter()
 
 
 /****************************************************************/
+bool BME280::ready()
+{
+   uint8_t status = 0xff;
+
+   ReadRegister(STATUS_ADDR, &status, 1);
+
+   if (status)
+         return false;
+
+   return true;
+}
+
+/****************************************************************/
 bool BME280::ReadChipID()
 {
    uint8_t id[1];

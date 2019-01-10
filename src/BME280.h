@@ -182,6 +182,10 @@ public:
    float hum();
 
    /////////////////////////////////////////////////////////////////
+   /// Read the the status from the BME280, return true if
+   /// measurement is ready.
+   bool ready();
+   /////////////////////////////////////////////////////////////////
    /// Read the data from the BME280 in the specified unit.
    void   read(
       float&    pressure,
@@ -235,6 +239,7 @@ private:
 /*****************************************************************/
 
    static const uint8_t CTRL_HUM_ADDR   = 0xF2;
+   static const uint8_t STATUS_ADDR     = 0xF3;
    static const uint8_t CTRL_MEAS_ADDR  = 0xF4;
    static const uint8_t CONFIG_ADDR     = 0xF5;
    static const uint8_t PRESS_ADDR      = 0xF7;
